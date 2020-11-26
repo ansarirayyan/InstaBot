@@ -19,11 +19,15 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+    global username
+    global i
+
     if message.author == client.user:
         return
 
     if message.content.startswith(searchCommand):
-        global username
+        i = 0
+
         username = isolateUserString(message.content, searchCommand);
         print (username) # DEBUG
 
@@ -53,7 +57,6 @@ async def on_message(message):
         print(username)
 
     if message.content == (">"):
-        global i # let's it (whatever that may be) know that we're using the global i
         pics = driver.find_elements_by_tag_name("img")
         try:
             while (True):
@@ -70,4 +73,4 @@ async def on_message(message):
 
 
 
-client.run('Njk3NjUxMzc3NjY0NTU3MTA4.Xo6Yeg.3WwG8-lwca2m41mrE7y-wVcELb0')
+client.run('NzgxMjkwNTY5NDEzNTU4MzA2.X77fiw.u57Jv7QwxscMn8gG3fGAMZG4Sw0')
