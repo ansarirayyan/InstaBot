@@ -54,9 +54,10 @@ async def on_message(message):
 
     if message.content == (">"):
         pics = driver.find_elements_by_tag_name("img")
+        numberOfPics = len(pics)
         try:
             while (True):
-                if (pics[i].get_attribute('alt').endswith("profile picture")):
+                if ((pics[i].get_attribute('alt').endswith("profile picture")) or (i == (numberOfPics - 1))):
                     i = i + 1
                     print("INDEX: " + str(i))
                 else:
