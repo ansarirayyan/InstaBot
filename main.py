@@ -45,15 +45,11 @@ async def on_message(message):
             pictura[0].get_attribute('src') # profile pic if index is 0
         elif (driver.current_url == "https://www.instagram.com/accounts/login/"):
             print(":::::::::::::::::::::::redirected to login page")
-
+            # TODO: get this implemented soon ... though I do not think there need
         else:
             await message.channel.send("User found!")
 
-        # document.getElementsByTagName("h2")[0].innerHTML save so I don't lose
-        # TODO: THIS CODE IS HELLA MESSY DIDN'T WANT ANY SELENIUM STUFF IN MAIN
-
     if message.content == ("i current"): # DEBUG
-        #global username # WHY CAN'T THIS LINE AND THE ONE BELOW BE ONE??????????
         print(username)
 
     if message.content == (">"):
@@ -61,9 +57,8 @@ async def on_message(message):
         try:
             while (True):
                 if (pics[i].get_attribute('alt').endswith("profile picture")):
-                    print(pics[i].get_attribute('alt').find("profile picture"))
                     i = i + 1
-                    print("::::::::::::::INDEX: " + str(i))
+                    print("INDEX: " + str(i))
                 else:
                     break
             await message.channel.send (pics[i].get_attribute('src'))
